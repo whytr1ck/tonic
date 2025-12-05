@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Telegram theme colors */
+@theme {
+  --color-tg-bg: var(--tg-theme-bg-color, #ffffff);
+  --color-tg-text: var(--tg-theme-text-color, #000000);
+  --color-tg-hint: var(--tg-theme-hint-color, #999999);
+  --color-tg-link: var(--tg-theme-link-color, #3390ec);
+  --color-tg-button: var(--tg-theme-button-color, #3390ec);
+  --color-tg-button-text: var(--tg-theme-button-text-color, #ffffff);
+  --color-tg-secondary: var(--tg-theme-secondary-bg-color, #f0f0f0);
+  --color-tg-destructive: var(--tg-theme-destructive-text-color, #ff3b30);
+}
+
+/* Base styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--tg-theme-bg-color, #ffffff);
+  color: var(--tg-theme-text-color, #000000);
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+}
