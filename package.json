@@ -17,17 +17,21 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@primevue/themes": "^4.5.1",
     "@tailwindcss/vite": "^4.1.17",
     "@ton/ton": "^16.1.0",
     "@tonconnect/ui": "^2.3.1",
     "@twa-dev/sdk": "^8.0.2",
     "apexcharts": "^5.3.6",
+    "eruda": "^3.4.3",
     "pinia": "^3.0.4",
+    "primevue": "^4.5.1",
     "tailwindcss": "^4.1.17",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3",
     "vue-tg": "^0.9.0",
-    "vue3-apexcharts": "^1.10.0"
+    "vue3-apexcharts": "^1.10.0",
+    "vue3-lottie": "^3.3.1"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.3",
