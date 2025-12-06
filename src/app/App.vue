@@ -6,5 +6,11 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import ToastManager from '@shared/components/ToastManager/ToastManager.vue';
+import { toastServiceInstance } from '@shared/components/ToastManager/services/toastService.ts'
+
+onMounted(() => {
+  toastServiceInstance.warn('test', 'test', 3000);
+});
 </script>

@@ -7,8 +7,8 @@ import { setupErrorHandler } from '@app/providers/errorHandler.ts'
 
 export function setupAdditionalPlugins(app: App): void {
   setupTelegram(app);
+  setupEruda();
   setupApexCharts(app);
   setupPrimeVue(app);
-  setupEruda();
   setupErrorHandler(app);
 }

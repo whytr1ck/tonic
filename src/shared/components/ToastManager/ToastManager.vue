@@ -1,6 +1,6 @@
 <template>
   <Toast
-      position="bottom-right"
+      position="top-right"
       :pt="{
         root: {
           class: { 'toasts-paused': isPaused }
