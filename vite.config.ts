@@ -7,15 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  server: {
-    host: '0.0.0.0',
-    allowedHosts: [import.meta.env.VITE_HTTPS_URL]
-  },
-  plugins: [
-    tailwindcss(),
-    vue(),
-    vueDevTools(),
-  ],
+  plugins: [tailwindcss(), vue(), vueDevTools()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
