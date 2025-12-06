@@ -1,4 +1,4 @@
-# Tonic
+# 🍸 Tonic
 
 Telegram Mini App для отслеживания криптопортфеля TON и настройки ценовых алертов.
 
@@ -61,10 +61,6 @@ src/
 Подробнее см. [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ## Разработка
-
-### IDE
-
-VS Code + расширение [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
 ### Правила кода
 
