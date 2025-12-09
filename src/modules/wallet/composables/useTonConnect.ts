@@ -27,8 +27,7 @@ export function useTonConnect() {
         publicKey: tonWallet.account.publicKey ?? '',
         chain: tonWallet.account.chain,
       };
-    }
-    else {
+    } else {
       wallet.value = null;
     }
   };
@@ -39,11 +38,9 @@ export function useTonConnect() {
       error.value = null;
       const connector = getConnector();
       await connector.openModal();
-    }
-    catch (err) {
+    } catch (err) {
       error.value = err instanceof Error ? err.message : 'Ошибка подключения';
-    }
-    finally {
+    } finally {
       isConnecting.value = false;
     }
   };
@@ -53,8 +50,7 @@ export function useTonConnect() {
       const connector = getConnector();
       await connector.disconnect();
       wallet.value = null;
-    }
-    catch (err) {
+    } catch (err) {
       error.value = err instanceof Error ? err.message : 'Ошибка отключения';
     }
   };

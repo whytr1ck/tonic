@@ -35,8 +35,9 @@ coverage
 # Vitest
 __screenshots__/
 
-#Claude
+#AI
 .claude
+.aiassistant
 ARCHITECTURE.md
 ticket.md
 ticket_status.md

@@ -33,7 +33,9 @@ export function useToastQueue(): IToastQueue {
    * @param message - Toast-сообщение с параметром displayLife (длительность)
    */
   const startTimer = (message: IToastMessage): void => {
-    if (!message.id || !message.displayLife) return;
+    if (!message.id || !message.displayLife) {
+      return;
+    }
 
     const timerId = setTimeout(() => {
       onMessageRemove(message);
@@ -45,7 +47,7 @@ export function useToastQueue(): IToastQueue {
       remainingTime: message.displayLife,
       isPaused: false
     });
-  }
+  };
 
   const clearTimer = (id: string | number): void => {
     const timerState = timers.get(id);
@@ -55,11 +57,13 @@ export function useToastQueue(): IToastQueue {
     }
 
     timers.delete(id);
-  }
+  };
 
   const pauseTimer = (id: string | number): void => {
     const timerState = timers.get(id);
-    if (!timerState || timerState.isPaused) return;
+    if (!timerState || timerState.isPaused) {
+      return;
+    }
 
     const elapsed = Date.now() - timerState.startTime;
     const remainingTime = Math.max(0, timerState.remainingTime - elapsed);
@@ -74,14 +78,18 @@ export function useToastQueue(): IToastQueue {
       remainingTime,
       isPaused: true
     });
-  }
+  };
 
   const resumeTimer = (id: string | number): void => {
     const timerState = timers.get(id);
-    if (!timerState || !timerState.isPaused) return;
+    if (!timerState || !timerState.isPaused) {
+      return;
+    }
 
     const message = visibleMessages.value.find((m) => m.id === id);
-    if (!message) return;
+    if (!message) {
+      return;
+    }
 
     const timerId = setTimeout(() => {
       onMessageRemove(message);
@@ -93,7 +101,7 @@ export function useToastQueue(): IToastQueue {
       remainingTime: timerState.remainingTime,
       isPaused: false
     });
-  }
+  };
 
   const enqueue = (message: IToastMessage): void => {
     if (message.id === null || message.id === undefined) {
@@ -118,11 +126,13 @@ export function useToastQueue(): IToastQueue {
 
       queuedMessages.value.push(message);
     }
-  }
+  };
 
   const onMessageRemove = (message: IToastMessage): void => {
     const id = message.id;
-    if (!id) return;
+    if (!id) {
+      return;
+    }
 
     if (processingRemovals.has(id)) {
       return;
@@ -151,19 +161,19 @@ export function useToastQueue(): IToastQueue {
         }, QUEUE_DELAY);
       }
     }
-  }
+  };
 
   const pauseAllTimers = (): void => {
     visibleMessages.value.forEach((message) => {
       pauseTimer(message.id!);
     });
-  }
+  };
 
   const resumeAllTimers = (): void => {
     visibleMessages.value.forEach((message) => {
       resumeTimer(message.id!);
     });
-  }
+  };
 
   const cleanup = (): void => {
     timers.forEach((timerState) => {
@@ -176,7 +186,7 @@ export function useToastQueue(): IToastQueue {
     processingRemovals.clear();
     visibleMessages.value = [];
     queuedMessages.value = [];
-  }
+  };
 
   return {
     enqueue,

@@ -11,7 +11,7 @@ function getHeaders(): HeadersInit {
   return apiKey ? { Authorization: `Bearer ${apiKey}` } : {};
 }
 
-export const tonapiClient: PriceService = {
+export const tonApiClient: PriceService = {
   async getWalletData(address: string): Promise<WalletData> {
     const [accountRes, jettonsRes] = await Promise.all([
       fetch(`${TONAPI_BASE}/accounts/${address}`, { headers: getHeaders() }),
@@ -77,8 +77,7 @@ export const tonapiClient: PriceService = {
         type = action.TonTransfer?.recipient?.address === address ? 'in' : 'out';
         amount = (Number(action.TonTransfer?.amount || 0) / 1e9).toFixed(2);
         symbol = 'TON';
-      }
-      else if (action.type === 'JettonTransfer') {
+      } else if (action.type === 'JettonTransfer') {
         type = action.JettonTransfer?.recipient?.address === address ? 'in' : 'out';
         amount = action.JettonTransfer?.amount || '0';
         symbol = action.JettonTransfer?.jetton?.symbol || 'Token';
@@ -96,7 +95,7 @@ export const tonapiClient: PriceService = {
     });
   },
 
-  async getPortfolioHistory(_address: string, _days = 30): Promise<PortfolioSnapshot[]> {
+  async getPortfolioHistory(_address: string): Promise<PortfolioSnapshot[]> {
     // TONAPI не предоставляет исторические данные портфеля напрямую
     // Для продакшена нужен отдельный сервис или агрегация данных
     // Пока возвращаем пустой массив

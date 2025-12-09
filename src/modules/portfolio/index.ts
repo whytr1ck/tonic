@@ -1,3 +1,3 @@
-export { priceService, mockApi, tonapiClient } from './services';
+export { priceService, mockApi, tonApiClient } from './services';
 
 export type * from './types';

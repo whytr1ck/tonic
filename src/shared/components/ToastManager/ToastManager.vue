@@ -1,17 +1,17 @@
 <template>
   <Toast
-      position="top-right"
-      :pt="{
-        root: {
-          class: { 'toasts-paused': isPaused }
-        },
-        message: ({ props }) => ({
-          style: { '--toast-life': `${(props.message as IToastMessage)?.displayLife || 3000}ms` },
-          onMouseenter: handleMouseEnter,
-          onMouseleave: handleMouseLeave
-        })
-      }"
-      @close="handleClose"
+    position="top-right"
+    :pt="{
+      root: {
+        class: { 'toasts-paused': isPaused }
+      },
+      message: ({ props }) => ({
+        style: { '--toast-life': `${(props.message as IToastMessage)?.displayLife || 3000}ms` },
+        onMouseenter: handleMouseEnter,
+        onMouseleave: handleMouseLeave
+      })
+    }"
+    @close="handleClose"
   />
 </template>
 
